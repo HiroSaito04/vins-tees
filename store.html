@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vin's Tees | Store</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --white: #ffffff;
+      --primary: #1d7a63;
+      --secondary: #f2d8b3;
+      --accent: #000000;
+      --text: #333333;
+      --highlight: #ff5e5e;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--secondary);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    header {
+      position: relative;
+      background-image: url('images/headerbg.png');
+      background-color: var(--secondary);
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 1.5rem;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    header h1 {
+      font-family: 'Shrikhand', cursive;
+      margin: 0.5rem 0;
+      display: inline-block;
+      z-index: 2;
+    }
+
+    .vins {
+      text-shadow: -4px 0 #ff7817;
+      font-size: 6rem;
+      color: var(--white);
+    }
+
+    .tees {
+      text-shadow: -4px 0 #f9d102;
+      font-size: 4rem;
+      color: var(--white);
+    }
+
+    header p1 {
+      font-family: 'IM Fell English', serif;
+      font-size: 1.25rem;
+      text-shadow: -2px 0 #000000;
+      opacity: 0.95;
+      letter-spacing: 0.5px;
+      z-index: 2;
+    }
+
+    .header-deco {
+      position: absolute;
+      top: 50%;
+      width: 15%;
+      transform: translateY(-50%);
+      height: 100%;
+      opacity: 1;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .header-deco.left {
+      left: 0;
+      margin-left: .5rem;
+    }
+
+    .header-deco.right {
+      right: 0;
+      margin-right: .5rem;
+    }
+
+    .products {
+      padding: 2rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      column-gap: 2rem;
+      row-gap: 2rem;
+      justify-content: center;
+    }
+
+/* For medium-sized screens (e.g., tablets) */
+@media (max-width: 1024px) {
+  .product-grid {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    grid-template-columns: repeat(3, auto); /* 3 cards per row */
+  }
+  .product-card {
+      width: 80%; /* Ensure cards take full width */
+   }
+}
+
+/* For smaller screens (e.g., mobile devices) */
+@media (max-width: 768px) {
+  .product-grid {
+       column-gap: 1rem; 
+       row-gap: 1rem; 
+       grid-template-columns: repeat(2, auto); /* 2 cards per row */
+       margin-left: 1rem;
+       margin-right: 1rem;
+   }
+    .product-card {
+      width: 80%; /* Ensure cards take full width */
+   }
+}
+
+/* For extra small screens */
+@media (max-width: 480px) {
+  .product-grid {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      gap: 0.5rem; 
+      grid-template-columns: 1fr; 
+  }
+  
+  .product-card {
+    width: 80%; /* Ensure cards take full width */
+  }
+}
+
+
+    .product-card {
+  background-color: var(--white);
+  padding: 1rem;
+  width: 200px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Align children (image, text, and button) vertically */
+  justify-content: space-between; /* Space between content */
+}
+
+.product-card button {
+  margin-top: 1rem; /* Add spacing between product description and button */
+  padding: 0.5rem 1rem;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+  background-color: var(--highlight);
+}
+
+
+    .product-card img {
+      width: 100%;
+      border-radius: 0.5rem;
+    }
+
+    .products h2 {
+      font-family: 'Shrikhand', cursive;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin: 0.5rem 0;
+      text-shadow: -1px 1px #00000022;
+      text-align: center;
+    }
+
+    .product-card h3, p4 {
+      font-family: 'IM Fell English', serif;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: var(--text);
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin: 2rem 0;
+      text-decoration: underline;
+      color: var(--accent);
+     font-family: 'IM Fell English', serif; /* Change font here */
+   }
+
+
+    footer {
+      background-color: var(--primary);
+      color: var(--white);
+      text-align: center;
+      padding: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/header_left.png" class="header-deco left" alt="Decor Left">
+  <img src="images/header_right.png" class="header-deco right" alt="Decor Right">
+  <h1>
+    <span class="vins">Vin’s</span> <span class="tees">Tees</span>
+  </h1>
+  <p1><q>Threaded in the 90s, Styled for 2090.</q></p1>
+</header>
+
+<section class="products">
+  <h2>Drop It Like It’s Hot</h2>
+  <div class="product-grid">
+    <!-- 1 -->
+    <div class="product-card">
+      <img src="images/product1.png" alt="Clover Patched Bowling Shirt">
+      <h3>Clover Patched Bowling Shirt - Green</h3>
+      <p>Retro colorblock shirt with clover and Korean patch. Oversized fit with chest pockets.</p>
+      <p>$29.99</p>
+      <button>Buy Now</button>
+    </div>
+
+    <!-- 2 -->
+    <div class="product-card">
+      <img src="images/product2.png" alt="Vintage Star Jorts">
+      <h3>Vintage Star Jorts</h3>
+      <p>Classic denim jorts with star-studded flair. Built for throwback energy.</p>
+      <p>$34.99</p>
+      <button>Buy Now</button>
+    </div>
+
+    <!-- 3 -->
+    <div class="product-card">
+      <img src="images/product3.png" alt="Scooby Doo Collab Jacket">
+      <h3>Scooby Doo Collab Jacket</h3>
+      <p>Limited collab with Scooby vibes. Mystery Machine drip included.</p>
+      <p>$49.99</p>
+      <button>Buy Now</button>
+    </div>
+
+    <!-- 4 -->
+    <div class="product-card">
+      <img src="images/product4.png" alt="Grunge Baggy Clothe">
+      <h3>Grunge Baggy Clothe</h3>
+      <p>Oversized grunge look straight from your fav ‘90s playlist.</p>
+      <p>$39.99</p>
+      <button>Buy Now</button>
+    </div>
+
+    <!-- 5 -->
+    <div class="product-card">
+      <img src="images/product5.png" alt="Ninja Turtle Donny Zhoez">
+      <h3>Ninja Turtle Donny Zhoez</h3>
+      <p>Heroic soles inspired by Donatello. Tech meets turtle style.</p>
+      <p>$59.99</p>
+      <button>Buy Now</button>
+    </div>
+
+    <!-- 6 -->
+    <div class="product-card">
+      <img src="images/product6.png" alt="Vintage Military Laptop Bag">
+      <h3>Vintage Military Laptop Bag</h3>
+      <p>Canvas leather blend with retro military energy. Messenger-ready.</p>
+      <p>$44.99</p>
+      <button>Buy Now</button>
+    </div>
+
+    <!-- 7 -->
+    <div class="product-card">
+      <img src="images/product7.png" alt="Shark Sweater Men">
+      <h3>Shark Sweater Men</h3>
+      <p>Winter cartoon Harajuku-style turtleneck sweater. Loose, hip hop knit for cold days.</p>
+      <p>$54.99</p>
+      <button>Buy Now</button>
+    </div>
+
+    <!-- 8 -->
+    <div class="product-card">
+      <img src="images/product8.png" alt="Aonga Retro Mesh T-shirt">
+      <h3>Aonga Retro Mesh T-shirt</h3>
+      <p>Harajuku streetwear short-sleeve mesh tee. Breathable and bold summer fit.</p>
+      <p>$27.99</p>
+      <button>Buy Now</button>
+    </div>
+
+    <!-- 9 -->
+    <div class="product-card">
+      <img src="images/product9.png" alt="Classic Camo Jean Jacket">
+      <h3>Classic Camo Jean Jacket</h3>
+      <p>Japanese retro buttoned outerwear with camo print. Rugged and stylish.</p>
+      <p>$64.99</p>
+      <button>Buy Now</button>
+    </div>
+
+    <!-- 10 -->
+    <div class="product-card">
+      <img src="images/product10.png" alt="Work Style Baggy Jeans">
+      <h3>Work Style Baggy Jeans</h3>
+      <p>Multi-pocket carpenter-style denim. Utility meets vintage streetwear.</p>
+      <p>$49.99</p>
+      <button>Buy Now</button>
+    </div>
+
+    <!-- 11 -->
+    <div class="product-card">
+      <img src="images/product11.png" alt="Grunge Baggy Jeanz">
+      <h3>Grunge Baggy Jeanz</h3>
+      <p>Distressed, low-slung baggy jeans for that retro alt-core vibe.</p>
+      <p>$45.99</p>
+      <button>Buy Now</button>
+    </div>
+
+    <!-- 12 -->
+    <div class="product-card">
+      <img src="images/product12.png" alt="Y2K Patchwork Hoodie">
+      <h3>Y2K Zip-Up Patchwork Hoodie</h3>
+      <p>Vintage Y2K style with color block panels and zip-up cut. Soft and edgy.</p>
+      <p>$59.99</p>
+      <button>Buy Now</button>
+    </div>
+  </div>
+</section>
+
+
+<a class="back-link" href="index.html">← Back to Home</a>
+
+<footer>
+  <p>© 2025 <br> Mike  Angelo A. Rubia <br> Inf232 <br> E-Commerce Website Project<br>Web Development/Platform Technologies</p>
+</footer>
+
+</body>
+</html>

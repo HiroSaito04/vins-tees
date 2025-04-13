@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vin's Tees | Back to the Future of Fashion</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --white: #ffffff;
+      --primary: #1d7a63;
+      --secondary: #f2d8b3;
+      --accent: #000000;
+      --text: #333333;
+      --highlight: #ff5e5e;
+    }
+
+   body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--secondary);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+   header {
+      position: relative;
+      background-image: url('images/headerbg.png');
+      background-color: var(--secondary);
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 1.5rem;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+    header h1 {
+      font-family: 'Shrikhand', cursive;
+      margin: 0.5rem 0;
+      display: inline-block;
+      z-index: 2;
+    }
+    .vins {
+      text-shadow: -4px 0 #ff7817;
+      font-size: 6rem;
+      color: var(--white);
+    }
+    .tees {
+      text-shadow: -4px 0 #f9d102;
+      font-size: 4rem;
+      color: var(--white);
+    }
+    header p1 {
+      font-family: 'IM Fell English', serif;
+      font-size: 1.25rem;
+      text-shadow: -2px 0 #000000;
+      opacity: 0.95;
+      letter-spacing: 0.5px;
+      z-index: 2;
+    }
+    .header-deco {
+      position: absolute;
+      top: 50%;
+      width: 15%;
+      transform: translateY(-50%);
+      height: 100%;
+      opacity: 1;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .header-deco.left {
+      left: 0;
+      margin-left: .5rem;
+    }
+    .header-deco.right {
+      right: 0;
+      margin-right: .5rem;
+    }
+
+    .overview {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--secondary);
+      padding: 2rem;
+      margin-bottom: -8rem;
+    }
+    .overview-left {
+      margin-top: -5.5rem;
+      flex: 1 1 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .description {
+      max-width: 400px;
+    }
+    .description h2 {
+      font-family: 'Shrikhand', cursive;
+      font-size: 3rem;
+      color: var(--highlight);
+      text-shadow: -2px 0 #00000022;
+    }
+    .description p2 {
+      font-family: 'IM Fell English', serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--text);
+    }
+    .overview-right {
+      flex: 1 1 400px;
+      background-image: url('images/overviewbg.png');
+      margin-top: -7.5rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      min-height: 250px;
+      aspect-ratio: 1 / 1;
+    }
+
+    .features {
+      text-align: center;
+      padding: 2rem;
+    }
+    .features h2 {
+      font-family: 'Shrikhand', cursive;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      text-shadow: -1px 1px #00000022;
+    }
+    .features ul {
+      list-style: none;
+      margin: 0 auto;
+      max-width: 500px;
+      text-align: left;
+    }
+    .features li {
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      position: relative;
+      font-family: 'IM Fell English', serif;
+      font-size: 1.15rem;
+      color: var(--accent);
+    }
+    .features li::before {
+      content: "✔";
+      color: var(--primary);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, auto); 
+      column-gap: 2rem; 
+      row-gap: 2rem; 
+      justify-content: center; 
+    }
+
+    .product-card {
+      width: 200px;
+    }
+    .products h2 {
+      font-family: 'Shrikhand', cursive;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin: 0.5rem 0;
+      text-shadow: -1px 1px #00000022;
+      text-align: center;
+    }
+    .product-card h3, p4 {
+     font-family: 'IM Fell English', serif;
+     font-size: 1rem;
+     line-height: 1.4;
+     color: var(--text);
+     text-align: center;
+   }
+   .product-card, .gallery-img {
+      background-color: var(--white);
+      padding: 1rem;
+      width: 200px;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+    .product-card img, .gallery-img img {
+      width: 100%;
+      border-radius: 0.5rem;
+    }
+
+
+   /* For smaller screens (e.g., mobile devices) */
+   @media (max-width: 768px) {
+     .product-grid {
+       column-gap: 1rem; 
+       row-gap: 1rem; 
+       grid-template-columns: repeat(2, auto); /* 2 cards per row */
+       margin-left: 0.5rem;
+       margin-right: 0.5rem;
+   }
+    .product-card {
+      width: 80%; /* Ensure cards take full width */
+    }
+  }
+
+  /* For extra small screens */
+  @media (max-width: 480px) {
+   .product-grid {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      gap: 0.5rem; 
+      grid-template-columns: 1fr; 
+   }
+  .product-card {
+      width: 100%; /* Ensure cards take full width */
+  }
+ }
+
+    .ad-grid {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2rem;
+      padding: 2rem 0;
+      flex-wrap: wrap;
+    }
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    } 
+    .left-column img, .right-column img {
+      width: 500px;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .right-column img {
+      width: 400px;
+    }  
+    
+    .media h2 {
+      font-family: 'Shrikhand', cursive;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      text-shadow: -1px 1px #00000022;
+    }
+    iframe {
+      width: 80%;
+      max-width: 600px;
+      height: 315px;
+      margin-top: 1rem;
+      border-radius: 1rem;
+      border: none;
+    }
+    
+    .cta a {
+      display: inline-block;
+      margin-top: 2rem;
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-family: 'IM Fell English', serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease;
+    }
+    .cta a:hover {
+      background: var(--highlight);
+    }
+    
+    footer {
+      background-color: var(--primary);
+      color: var(--white);
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    section {
+      padding: 2rem;
+      text-align: center;
+    }
+
+</style>
+</head>
+<body>
+
+<header>
+  <img src="images/header_left.png" class="header-deco left" alt="Decor Left">
+  <img src="images/header_right.png" class="header-deco right" alt="Decor Right">
+  <h1>
+    <span class="vins">Vin’s</span> <span class="tees">Tees</span>
+  </h1>
+  <p1><q>Threaded in the 90s, Styled for 2090.</q></p>
+</header>
+
+<section class="overview">
+  <div class="overview-left">
+    <div class="description">
+      <h2>Retro Drip. Future Vibes.</h2>
+      <p2>Channel your inner 2003 icon with fits that scream dial-up, mixtapes, and mall food court core.</p>
+    </div>
+  </div>
+  <div class="overview-right"></div>
+</section>
+
+<section class="features">
+  <h2>Why You'll Wanna Flex These</h2>
+  <ul>
+    <li>Fabric smoother than your old Myspace playlist</li>
+    <li>Designs so clean, your Tamagotchi would approve</li>
+    <li>Sustainably made — because we love the planet and the vibes</li>
+    <li>Shipped faster than your favorite meme goes viral</li>
+  </ul>
+</section>
+
+<section class="products">
+  <h2>Drop It Like It’s Hot</h2>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="images/product1.png" alt="Clover Patched Bowling Shirt">
+      <h3>Clover Patched Bowling Shirt - Green</h3>
+      <p4>Retro colorblock shirt with clover and Korean patch. Oversized fit with chest pockets.</p>
+    </div>
+
+    <div class="product-card">
+      <img src="images/product2.png" alt="Vintage Star Jorts">
+      <h3>Vintage Star Jorts</h3>
+      <p4>Classic denim jorts with star-studded flair. Built for throwback energy.</p>
+    </div>
+
+    <div class="product-card">
+      <img src="images/product3.png" alt="Scooby Doo Collab Jacket">
+      <h3>Scooby Doo Collab Jacket</h3>
+      <p4>Limited collab with Scooby vibes. Mystery Machine drip included.</p>
+    </div>
+
+    <div class="product-card">
+      <img src="images/product4.png" alt="Grunge Baggy Clothe">
+      <h3>GrungeBaggy Clothe</h3>
+      <p4>Oversized grunge look straight from your fav ‘90s playlist. </p>
+    </div>
+
+    <div class="product-card">
+      <img src="images/product5.png" alt="Ninja Turtle Donny Zhoez">
+      <h3>Ninja Turtle Donny Zhoez</h3>
+      <p4>Heroic soles inspired by Donatello. Tech meets turtle style.</p>
+    </div>
+
+    <div class="product-card">
+      <img src="images/product6.png" alt="Vintage Military Canvas Bag">
+      <h3>Vintage Military Laptop Bag</h3>
+      <p4>Canvas leather blend with retro military energy. Messenger-ready.</p>
+    </div>
+  </div>
+</section>
+
+<section class="posterad">
+  <div class="ad-grid">
+    <div class="left-column">
+      <img src="images/poster01.png" alt="Poster 1">
+      <img src="images/poster02.png" alt="Poster 2">
+    </div>
+    <div class="right-column">
+      <img src="images/poster03.png" alt="Poster 3">
+    </div>
+  </div>
+</section>
+
+<section class="media">
+  <h2>Learn More About Vin's Tees</h2>
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/P0X8LAOtWNU?si=PpDrHPNeui0R9_Uv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</section>
+
+<section class="cta">
+  <a href="store.html">Visit Store</a>
+</section>
+
+<footer>
+  <p>© 2025 <br> Mike  Angelo A. Rubia <br> Inf232 <br> E-Commerce Website Project<br>Web Development/Platform Technologies</p>
+</footer>
+
+</body>
+</html>
